@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Class</title>
+</head>
+
+<body>
+    <h2>Nama Saya: <span id="nama"></span>, Bagian <span id="kategori"></span>, Divisi: <span id="divisi"></span></h2>
+    <h2>ini Arrow Function = <span id="halo"></span></h2>
+    <h2>Arrow Functions Menghitung luas Sisi = <span id="sisi"></span></h2>
+    <h2>Arrow Functions Segitiga = <span id="segitiga"></span></h2>
+    <h2>Contoh ForEach = <span id="foreach"></span></h2>
+    <h2>Contoh Filter = <span id="filter"></span></h2>
+    <h2>Contoh Map = <span id="map"></span></h2>
+    <script>
+        // ini class
+        class fendi {
+            kategori = '';
+            divisi = '';
+            nama = '';
+            constructor() {
+                this.kategori = "Programmer";
+                this.divisi = "IT";
+                this.nama = "Fendi";
+            }
+            pilih_kategori() {
+                this.kategori = "Backend";
+                this.divisi = "Software Aplikasi"
+                this.nama = "Fendi Law"
+            }
+        }
+        const law = new fendi();
+        console.log('kategori:' + law.kategori + ' |' + ' divisi:' + law.divisi + '|' + 'Nama:' + law.nama);
+        const setLaw = law.pilih_kategori();
+        console.log('kategori:' + law.kategori + ' |' + ' divisi:' + law.divisi + '|' + 'Nama:' + law.nama);
+
+        console.log('setlaw:' + law.nama)
+        document.getElementById('nama').append(law.nama)
+        document.getElementById('kategori').append(law.kategori)
+        document.getElementById('divisi').append(law.divisi)
+        // ini Arrow Function
+        const halo = () => {
+            return "halo Semua"
+        }
+        console.log(halo())
+        document.getElementById('halo').append(halo())
+
+        // Arrow Functions Menghitung luas Sisi
+        const bujursangkar = (sisi) => sisi * sisi
+        console.log('luas bujursangkar: ' + bujursangkar(5))
+        document.getElementById('sisi').append(bujursangkar(5))
+
+
+        // Arrow Functions Menghitung luas Segitiga
+        const segitiga = (a, t) => 1 * a * t
+        console.log('Luas Segitiga: ' + segitiga(3, 8))
+        document.getElementById('segitiga').append(segitiga(3, 8))
+
+        const atlits = [
+            {
+                nama: "fendi",
+                negara: "Taiwan",
+                tangan: "Kanan",
+                rangking: 1
+            },
+            {
+                nama: "Irfan",
+                negara: "China",
+                tangan: "Kiri",
+                rangking: 2
+            },
+            {
+                nama: "Caman",
+                negara: "Bangladesh",
+                tangan: "Kanan",
+                rangking: 3
+            },
+        ];
+        atlits.forEach(function (i) {
+            console.log('forEach:' + i.nama);
+            document.getElementById('foreach').append('forEach: ' + i.nama + ' - ' + i.negara + ' , ' );
+        })
+
+        const filterAtlits = [
+            {
+                nama: "fendi",
+                negara: "Taiwan",
+                tangan: "Kanan",
+                rangking: 1
+            },
+            {
+                nama: "Irfan",
+                negara: "China",
+                tangan: "Kiri",
+                rangking: 2
+            },
+            {
+                nama: "Caman",
+                negara: "Bangladesh",
+                tangan: "Kanan",
+                rangking: 3
+            },
+        ];
+
+       const setFilter = filterAtlits.filter(i => i.rangking <=2);
+            console.log(setFilter);   
+            const newFilter = setFilter.map(i => `${i.nama} - ${i.negara} `)
+            document.getElementById('filter').append(newFilter);
+
+        const mapAtlits = [
+            {
+                nama: "fendi",
+                negara: "Taiwan",
+                tangan: "Kanan",
+                rangking: 1
+            },
+            {
+                nama: "Irfan",
+                negara: "China",
+                tangan: "Kiri",
+                rangking: 2
+            },
+            {
+                nama: "Caman",
+                negara: "Bangladesh",
+                tangan: "Kanan",
+                rangking: 3
+            },
+        ];
+        const setMap = mapAtlits.map(i => `${i.nama} - ${i.negara}`)
+            console.log(setMap);
+            document.getElementById('map').append(setMap);
+    </script>
+</body>
+
+</html>
